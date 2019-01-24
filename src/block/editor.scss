@@ -4,12 +4,16 @@
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
+$editor-html-font: Menlo, Consolas, monaco, monospace !default;
+$text-editor-font-size: 14px !default;
+$dark-gray-800: #23282d !default;
 
-.wp-block-cgb-block-iron-code-markdown  {
-  background: $green;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+.wp-block-cgb-block-iron-code-markdown .editor-plain-text {
+	font-family: $editor-html-font;
+	font-size: $text-editor-font-size;
+	color: $dark-gray-800;
+
+	&:focus {
+		box-shadow: none;
+	}
 }
