@@ -1,3 +1,13 @@
+# Iron Code Markdown WordPress Gutenberg Block
+
+This project is under development. Do **not** run on a production website.
+
+This WordPress plugin provides a custom block for the WordPress block based
+editor (Gutenberg). This block allows the user to enter markdown and renders
+it as HTML.
+
+## Built with Create Guten Block
+
 This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
 
 Below you will find some information on how to run scripts.
