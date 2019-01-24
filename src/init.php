@@ -14,25 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Enqueue Gutenberg block assets for both frontend + backend.
- *
- * @uses {wp-editor} for WP editor styles.
- * @since 1.0.0
- */
-function iron_code_markdown_cgb_block_assets() { // phpcs:ignore
-	// Styles.
-	wp_enqueue_style(
-		'iron_code_markdown-cgb-style-css', // Handle.
-		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
-		array( 'wp-editor' ) // Dependency to include the CSS after it.
-		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
-	);
-}
-
-// Hook: Frontend assets.
-add_action( 'enqueue_block_assets', 'iron_code_markdown_cgb_block_assets' );
-
-/**
  * Enqueue Gutenberg block assets for backend editor.
  *
  * @uses {wp-blocks} for block type registration & related functions.
