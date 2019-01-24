@@ -73,11 +73,9 @@ registerBlockType( 'cgb/block-iron-code-markdown', {
 	 */
 	save: function( props ) {
 		return (
-			<pre>
-				<code>
-					{props.attributes.content}
-				</code>
-			</pre>
+			<RawHTML>
+				{ marked( props.attributes.content ) }
+			</RawHTML>
 		);
 	},
 } );
