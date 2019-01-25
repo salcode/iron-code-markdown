@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { PlainText } from '@wordpress/editor';
+import { BlockControls, PlainText } from '@wordpress/editor';
 import { SandBox } from '@wordpress/components';
 
 /**
@@ -32,9 +32,26 @@ class MarkdownEdit extends Component {
 
 	render() {
 		const { attributes, setAttributes, className, isSelected } = this.props;
+		const { isPreview } = this.state;
 		if ( isSelected ) {
 			return (
 				<div className={ className }>
+					<BlockControls>
+						<div className="components-toolbar">
+							<button
+								className={ `components-tab-button ${ ! isPreview ? 'is-active' : '' }` }
+								onClick={ this.switchToMarkdown }
+							>
+								<span>{ __( 'Markdown' ) }</span>
+							</button>
+							<button
+								className={ `components-tab-button ${ isPreview ? 'is-active' : '' }` }
+								onClick={ this.switchToPreview }
+							>
+								<span>{ __( 'Preview' ) }</span>
+							</button>
+						</div>
+					</BlockControls>
 					<PlainText
 						value={ attributes.content }
 						onChange={ ( content ) => setAttributes( { content } ) }
