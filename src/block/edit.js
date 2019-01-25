@@ -12,6 +12,24 @@ import { SandBox } from '@wordpress/components';
 import marked from 'marked';
 
 class MarkdownEdit extends Component {
+	constructor() {
+		super( ...arguments );
+		this.state = {
+			isPreview: false,
+		};
+
+		this.switchToPreview = this.switchToPreview.bind( this );
+		this.switchToMarkdown = this.switchToMarkdown.bind( this );
+	}
+
+	switchToPreview() {
+		this.setState( { isPreview: true } );
+	}
+
+	switchToMarkdown() {
+		this.setState( { isPreview: false } );
+	}
+
 	render() {
 		const { attributes, setAttributes, className, isSelected } = this.props;
 		if ( isSelected ) {
