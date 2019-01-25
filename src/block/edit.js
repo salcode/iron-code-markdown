@@ -52,12 +52,16 @@ class MarkdownEdit extends Component {
 							</button>
 						</div>
 					</BlockControls>
-					<PlainText
-						value={ attributes.content }
-						onChange={ ( content ) => setAttributes( { content } ) }
-						placeholder={ __( 'Write markdown…' ) }
-						aria-label={ __( 'Markdown' ) }
-					/>
+					{ ( isPreview ) ? (
+						<SandBox html={ marked( attributes.content || '' ) } />
+					) : (
+						<PlainText
+							value={ attributes.content }
+							onChange={ ( content ) => setAttributes( { content } ) }
+							placeholder={ __( 'Write markdown…' ) }
+							aria-label={ __( 'Markdown' ) }
+						/>
+					) }
 				</div>
 			);
 		}
